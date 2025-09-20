@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kirill-devops-test-service
+  namespace: kirill
+spec:
+  type: LoadBalancer
+  selector:
+    app: kirill-devops-test-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

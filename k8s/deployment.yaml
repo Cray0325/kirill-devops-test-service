@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kirill-devops-test-service
+  namespace: kirill
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kirill-devops-test-service
+  template:
+    metadata:
+      labels:
+        app: kirill-devops-test-service
+    spec:
+      containers:
+        - name: kirill-devops-test-service
+          image: IMAGE_PLACEHOLDER
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: REPLY_HEALTH_MESSAGE
+              value: '{"status":"Hello from Kubernetes!"}'
